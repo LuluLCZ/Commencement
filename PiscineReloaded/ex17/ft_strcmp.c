@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Lulu <Lulu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/12 20:20:59 by Lulu              #+#    #+#             */
-/*   Updated: 2017/08/12 20:30:58 by Lulu             ###   ########.fr       */
+/*   Created: 2017/08/14 12:01:11 by Lulu              #+#    #+#             */
+/*   Updated: 2017/08/14 12:05:08 by Lulu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 
-int	ft_iterative_factorial(int nb)
+int     ft_strcmp(char *s1, char *s2)
 {
-	int resultat;
-	int i;
+    int     a;
 
-	i = 2;
-	resultat = 1;
-	if (nb == 0)
-		resultat = 1;
-	else if (nb < 0 || nb > 12)
-		resultat = 0;
-	while (i <= nb && nb < 13 && nb > 0)
-	{
-		resultat = resultat * i;
-		i++;
-	}
-	return (resultat);
+    a = 0;
+    while (s1[a] != '\0' && s2[a] != '\0' && s1[a] == s2[a])
+        a++;
+    return (s1[a] - s2[a]);
 }
 
-int	main(void)
+int     main(int ac, char **av)
 {
-	printf("%d", ft_iterative_factorial(5));
+    if (ac == 3)
+        printf("%d", ft_strcmp(av[1], av[2]));
+    return (0);
 }

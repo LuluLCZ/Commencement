@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Lulu <Lulu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/12 20:20:59 by Lulu              #+#    #+#             */
-/*   Updated: 2017/08/12 20:30:58 by Lulu             ###   ########.fr       */
+/*   Created: 2017/08/14 11:53:10 by Lulu              #+#    #+#             */
+/*   Updated: 2017/08/14 11:55:57 by Lulu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <unistd.h>
 
-int	ft_iterative_factorial(int nb)
+void    ft_putchar(char c)
 {
-	int resultat;
-	int i;
-
-	i = 2;
-	resultat = 1;
-	if (nb == 0)
-		resultat = 1;
-	else if (nb < 0 || nb > 12)
-		resultat = 0;
-	while (i <= nb && nb < 13 && nb > 0)
-	{
-		resultat = resultat * i;
-		i++;
-	}
-	return (resultat);
+    write(1, &c, 1);
 }
 
-int	main(void)
+void    ft_putstr(char *str)
 {
-	printf("%d", ft_iterative_factorial(5));
+    int     i;
+
+    i = 0;
+    while (str[i] != '\0')
+    {
+        ft_putchar(str[i]);
+        i++;
+    }
+}
+
+int     main(int ac, char **av)
+{
+    if (ac == 2)
+        ft_putstr(av[1]);
+    return (0);
 }

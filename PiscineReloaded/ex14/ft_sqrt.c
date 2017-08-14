@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Lulu <Lulu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/12 20:20:59 by Lulu              #+#    #+#             */
-/*   Updated: 2017/08/12 20:30:58 by Lulu             ###   ########.fr       */
+/*   Created: 2017/08/14 11:46:12 by Lulu              #+#    #+#             */
+/*   Updated: 2017/08/14 11:51:51 by Lulu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_iterative_factorial(int nb)
+int ft_sqrt(int nb)
 {
-	int resultat;
-	int i;
+    int     i;
 
-	i = 2;
-	resultat = 1;
-	if (nb == 0)
-		resultat = 1;
-	else if (nb < 0 || nb > 12)
-		resultat = 0;
-	while (i <= nb && nb < 13 && nb > 0)
-	{
-		resultat = resultat * i;
-		i++;
-	}
-	return (resultat);
+    i = 0;
+    while (i * i <= nb)
+    {
+        if (i * i == nb)
+            return (i);
+        i++;
+    }
+    return (0);
 }
 
-int	main(void)
+int main(int ac, char **av)
 {
-	printf("%d", ft_iterative_factorial(5));
+    if (ac == 2)
+        printf("%d", ft_sqrt(atoi(av[1])));
+    return (0);
 }

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Lulu <Lulu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/12 20:20:59 by Lulu              #+#    #+#             */
-/*   Updated: 2017/08/12 20:30:58 by Lulu             ###   ########.fr       */
+/*   Created: 2017/08/14 11:56:44 by Lulu              #+#    #+#             */
+/*   Updated: 2017/08/14 11:59:52 by Lulu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 
-int	ft_iterative_factorial(int nb)
+int     ft_strlen(char *str)
 {
-	int resultat;
-	int i;
+    int     i;
 
-	i = 2;
-	resultat = 1;
-	if (nb == 0)
-		resultat = 1;
-	else if (nb < 0 || nb > 12)
-		resultat = 0;
-	while (i <= nb && nb < 13 && nb > 0)
-	{
-		resultat = resultat * i;
-		i++;
-	}
-	return (resultat);
+    i = 0;
+    while (str[i])
+    {
+        i++;
+    }
+    return (i);
 }
 
-int	main(void)
+int     main(int ac, char **av)
 {
-	printf("%d", ft_iterative_factorial(5));
+    if (ac == 2)
+        printf("%d", ft_strlen(av[1]));
+    return (0);
 }
